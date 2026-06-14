@@ -37,3 +37,16 @@ export const updateNote = async(req , res) => {
 
     }
 }
+
+export const deleteNote = async(req , res) => {
+    try {
+        const deleteNote = await Note.findByIdAndDelete(req.params.id)
+        if(!deleteNote){
+            return res.status(404).json({message:"note not found"})
+        }
+        return res.status(201).json({message:"NOte delete successfully"})
+    } catch (error) {
+            return res.status(500).json({message:error.message})
+
+    }
+}
