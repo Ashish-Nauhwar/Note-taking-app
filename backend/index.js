@@ -2,6 +2,8 @@ import express from "express"
 import dotenv from "dotenv"
 import mongoose from "mongoose"
 import noteRoute from "./routes/note.route.js"
+import cors from "cors"
+
 
 dotenv.config()
 
@@ -17,6 +19,7 @@ try {
    
 }
 app.use(express.json())
+app.use(cors())
 app.use("/api/v1/noteapp" , noteRoute)
 
 app.listen(port , () => {
