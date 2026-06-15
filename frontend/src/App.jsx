@@ -12,7 +12,7 @@ function App() {
 
   return (
 
-    <div className='flex flex-col min-h-screen bg-zinc-900 text-white'>
+    <div className='flex flex-col min-h-screen bg-linear-to-br from-slate-950 via-purple-950 to-indigo-950 text-white'>
       {/* Navbar route */}
      <Navbar/>
 

@@ -26,20 +26,35 @@ useEffect(()=>{
 
 // create a note
 const createNote = async(note) => {
-    const res=await BACKEND_URL.post("/create-notes",note)
-    setNotes([res.data,...notes])
+    try {
+        const res=await BACKEND_URL.post("/create-notes",note)
+        setNotes([res.data,...notes])
+    } catch (error) {
+        console.error("Error creating note:", error.response?.data || error.message);
+        
+    }
 }
 
 // update a note
 const updateNote = async(id, updateNote) => {
-    const res=await BACKEND_URL.put(`/update-notes/${id}`,updateNote)
-    setNotes(notes.map((note)=>(note._id===id ? res.data : note)))
+    try {
+        const res=await BACKEND_URL.put(`/update-notes/${id}`,updateNote)
+        setNotes(notes.map((note)=>(note._id===id ? res.data : note)))
+    } catch (error) {
+        console.error("Error updating note:", error);
+        
+    }
 }
 
 // delete a note
 const deleteNote = async(id) => {
-    await BACKEND_URL.delete(`/delete-notes/${id}`)
-    setNotes(notes.filter((note)=>(note._id!==id)))
+   try {
+     await BACKEND_URL.delete(`/delete-notes/${id}`)
+     setNotes(notes.filter((note)=>(note._id!==id)))
+   } catch (error) {
+    console.error("Error deleting note:", error);
+    
+   }
 }
 
 return(

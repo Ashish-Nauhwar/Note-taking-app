@@ -20,7 +20,7 @@ function Home() {
     if(notes.length===0){
         return(
              <div className='flex justify-center items-center min-h-screen'>
-                <p className='text-lg text-gray-700'>NO NOTES AVAILABLE PLEASE ADD SOME NOTES</p>
+                <p className='text-lg text-gray-400'>NO NOTES AVAILABLE PLEASE ADD SOME NOTES</p>
             </div>
         
         )

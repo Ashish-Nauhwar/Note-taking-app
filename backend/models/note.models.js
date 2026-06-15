@@ -2,7 +2,7 @@ import mongoose from "mongoose"
 
 const noteSchema = mongoose.Schema({
 
-    tittle:{
+    title:{
         type: String,
         required: true,
         trim: true
